@@ -81,9 +81,13 @@ export const register = async (req, res) => {
         res.status(400).json({ success: false, message: error.message });
     }
 };
+
 export const login = async (req, res) => {
     res.send('Login route');
 }
+
 export const logout = async (req, res) => {
-    res.send('Logout route');
+    res.clearCookie('token');
+    res.message = 'user logged out successfully';
+    res.send(message);
 }
